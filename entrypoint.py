@@ -33,6 +33,7 @@ print(f"Hello {user['fullName']} from Jenkins {version}")
 # build job
 split = JOB_PATH.split("job/")
 job_name = "".join(split)
+print(JOB_PARAMS)
 server.build_job(job_name, parameters=json.loads(JOB_PARAMS), token=JENKINS_TOKEN)
 queue_info = server.get_queue_info()
 queue_id = queue_info[0].get('id')
